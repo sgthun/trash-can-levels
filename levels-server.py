@@ -5,6 +5,7 @@ from thrift.transport import TTransport
 from thrift.transport import TSocket
 from thrift.protocol import TBinaryProtocol
 from thrift.server import TServer
+
 from levels import CanLevels
 from levels import ttypes
 
@@ -12,7 +13,7 @@ wcans = {}
 
 class CanLevelsHandler:
     def get_cans_above_threshold(self, percent_full):
-        return ttypes.can_levels(count=2, can_levels=wcans)
+        return ttypes.can_levels(count=2, can_levels=wcans, date=37465)
 
     def update_can_level(self, can_id, percent_full):
         wcans[can_id] = percent_full
